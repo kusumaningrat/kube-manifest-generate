@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: {{ kind }}
+metadata:
+  name: {{ name }}
+  labels:
+    {{ label }}: {{ labelValue }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      {{ label }}: {{ labelValue }}
+  template:
+    metadata:
+      labels:
+        {{ label }}: {{ labelValue }}
+    spec:
+      containers:
+      - name: {{ containerName }}
+        image: {{ imageName }}
